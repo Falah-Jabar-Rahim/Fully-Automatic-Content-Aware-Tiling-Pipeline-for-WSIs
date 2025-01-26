@@ -55,10 +55,11 @@ TBD.
 - You can adjust the testing parameters on line 58 of `inti_artifact.py`
 - If your WSI image has a format other than .svs or .mrxs, please modify line 92 in `test_wsi.py`
 - It is recommended to use a tile size of 270 × 270 pixels
-- To generate a high-resolution thumbnail image and segmentation mask, you can adjust the `thumbnail_size` parameter in `test_wsi.py`. However, note that this will increase the execution time.
 - To generate tiles of different sizes (e.g., 512x512):
     - Run the pipeline to generate the qualified tissue mask.
     - Use the qualified tissue mask and the WSI to generate tiles of the desired size (a python script will be provided soon to do this)
+- To generate a high-resolution thumbnail image and segmentation mask, you can adjust the `thumbnail_size` parameter in `test_wsi.py`. However, note that this will increase the execution time.
+
 
 
 # Training:
