@@ -60,6 +60,9 @@ TBD.
 
 # Training:
 
+- To retrain the artifact detection model, refer to the details provided in(https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA)
+- To retrain the ink revmoval detection model, refer to the details provided in (https://github.com/Vishwesh4/Ink-WSI)
+
 - Visit https://drive.google.com/drive/folders/1mbnLH1JIztTMw7Cgv8pSzNxba-aGv1jT?usp=share_link and download the develpment artifact datasets (and external validation dataset)
 - Extract and place the dataset into a folder named `train_dataset`
 - Within `train_dataset`, refer to the example files provided to understand the structure. First run `python train.py` as a demo to check if the pipeline is ready 
