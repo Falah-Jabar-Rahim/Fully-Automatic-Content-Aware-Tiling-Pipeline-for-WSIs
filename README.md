@@ -26,6 +26,12 @@ TBD.
   pip install -r requirements.txt
 ```
 
+# Notes:
+
+- If your WSIs do not contain pen-marking artifacts, it is recommended to use this pipeline: https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA
+
+
+
 
 # Datasets:
 
