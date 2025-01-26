@@ -63,41 +63,6 @@ TBD.
 - To retrain the artifact detection model, refer to the details provided in: https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA
 - To retrain the ink removal detection model, refer to the details provided in: https://github.com/Vishwesh4/Ink-WSI
 
-- Visit https://drive.google.com/drive/folders/1mbnLH1JIztTMw7Cgv8pSzNxba-aGv1jT?usp=share_link and download the develpment artifact datasets (and external validation dataset)
-- Extract and place the dataset into a folder named `train_dataset`
-- Within `train_dataset`, refer to the example files provided to understand the structure. First run `python train.py` as a demo to check if the pipeline is ready 
-- Create two files, `train_images.txt` and `train_masks.txt`, with lists of the corresponding image and mask paths, that used for training.
-
-     Example content for `train_images.txt`:
-     ```
-     path/to/image1.png
-     path/to/image2.png
-     ...
-     ```
-     Example content for `train_masks.txt`:
-     ```
-     path/to/mask1.png
-     path/to/mask2.png
-     ...
-     ```
-- Create an account on [Weights and Biases](https://docs.wandb.ai)
-- After signing up, go to your account settings and obtain your API key. It will look something like: `wandb.login(key='xxxxxxxxxxxxx')`
-- Open the file `trainer.py`
-- Find the line where the Weights and Biases login is required
-- Update it with your API key like this:
-     ```python
-     wandb.login(key='your_actual_key_here')
-     ```
-- Adjust the training parameters (e.g., epoch, learning rate) in `train.py` if needed
-- Open a terminal in the directory where `train.py` is located
-- Run the following command to start the training:
-     ```bash
-     python train.py
-     ```
-- When training starts, a link to the Weights and Biases interface will appear in the terminal
-- Click on the link to track and visualize the progress of your training
-- After the training is complete, the weights will be saved in the `logs` folder within your project directory
-
 # Results 
 
 ![WSI-QA](./Performance-metrics.png)
