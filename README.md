@@ -29,13 +29,13 @@ TBD.
 
 # Datasets:
 
-- Contact the corresponding author to access the datasets described in the paper.
-- The datasets will be available soon for research purposes only.
+- Contact the corresponding author to access the datasets described in the paper
+- The datasets will be available soon for research purposes only
 
 # Pretrained Weights:
 
 - Download the pretrained weights from this link: https://drive.google.com/drive/folders/1mfCa6YiyFgbrjwOxLUKOKeA3JlIjDQ77?usp=drive_link
-- Place the downloaded weights into the `pretrained_ckpt` folder.
+- Place the downloaded weights into the `pretrained_ckpt` folder
 
 # Inference:
 
@@ -58,7 +58,7 @@ TBD.
 - To generate tiles of different sizes (e.g., 512x512):
     - Run the pipeline to generate the qualified tissue mask.
     - Use the qualified tissue mask and the WSI to generate tiles of the desired size (a python script will be provided soon to do this)
-- To generate a high-resolution thumbnail image and segmentation mask, you can adjust the `thumbnail_size` parameter in `test_wsi.py`. However, note that this will increase the execution time.
+- To generate a high-resolution thumbnail image and segmentation mask, you can adjust the `thumbnail_size` parameter in `test_wsi.py`. However, note that this will increase the execution time
 
 
 
@@ -81,7 +81,7 @@ TBD.
 
 # Acknowledgment:
 
-Some parts of this pipeline were adapted from work on [GitHub](https://github.com/pengsl-lab/DHUnet). If you use this pipeline, please make sure to cite their work.
+Some parts of this pipeline were adapted from work on [GitHub](https://github.com/pengsl-lab/DHUnet). If you use this pipeline, please make sure to cite their work
 
 
 # Contact: 
