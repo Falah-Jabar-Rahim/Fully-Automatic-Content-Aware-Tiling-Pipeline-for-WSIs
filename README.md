@@ -81,7 +81,7 @@ TBD.
 
 # Acknowledgment:
 
-Some parts of this pipeline were adapted from work on [GitHub](https://github.com/pengsl-lab/DHUnet). If you use this pipeline, please make sure to cite their work
+Some parts of this pipeline were adapted from work on [GitHub](https://github.com/pengsl-lab/DHUnet) and  [GitHub](https://github.com/Vishwesh4/Ink-WSI). If you use this pipeline, please make sure to cite their work properly
 
 
 # Contact: 
