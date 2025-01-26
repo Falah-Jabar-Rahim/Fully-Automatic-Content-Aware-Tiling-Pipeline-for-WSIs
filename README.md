@@ -28,7 +28,7 @@ TBD.
 
 # Notes:
 
-- If your WSIs do not contain pen-marking artifacts, it is recommended to use this pipeline: https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA
+- If your WSIs do not contain pen-marking artifacts, you can also use this pipeline: https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA
 - WSI-SmartTiling is designed to clean and prepare WSIs for deep learning model development, prioritizing performance over efficiency
 
 
