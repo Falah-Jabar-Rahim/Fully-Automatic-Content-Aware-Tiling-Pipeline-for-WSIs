@@ -26,12 +26,6 @@ TBD.
   pip install -r requirements.txt
 ```
 
-# Notes:
-
-- If your WSIs do not contain pen-marking artifacts, you can also use this pipeline: https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA
-- WSI-SmartTiling is designed to clean and prepare WSIs for deep learning model development, prioritizing performance over efficiency
-
-
 
 # Datasets:
 
@@ -62,6 +56,9 @@ TBD.
 - If your WSI image has a format other than .svs or .mrxs, please modify line 143 in `test_wsi.py`
 - It is recommended to use a tile size of 270 × 270 pixels
 - To generate a high-resolution thumbnail image and segmentation mask, you can adjust the `thumbnail_size` parameter in `test_wsi.py`. However, note that this will increase the execution time.
+- For different tile sizes (e.g., 512x512):
+    - Run the pipeline to generate the qualified tissue mask.
+    - Use the qualified tissue mask and the WSI to generate tiles of the desired size.
 
 
 # Training:
@@ -74,6 +71,11 @@ TBD.
 ![WSI-QA](./Performance-metrics.png)
 
 ![WSI-QA](./WSI-Segmentation.png)
+
+# Notes:
+
+- If your WSIs do not contain pen-marking artifacts, you can also use this pipeline: https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA
+- WSI-SmartTiling is designed to clean and prepare WSIs for deep learning model development, prioritizing performance over efficiency
 
 
 # Acknowledgment:
