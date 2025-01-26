@@ -30,7 +30,7 @@ TBD.
 # Datasets:
 
 - Contact the corresponding author to access the datasets described in the paper.
-- The datasets are available for research purposes only.
+- The datasets will be available soon for research purposes only.
 
 # Pretrained Weights:
 
