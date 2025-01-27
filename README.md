@@ -51,15 +51,14 @@ TBD.
   - A segmentation mask highlighting only qualified tissue regions of the WSI [background:0, qualified tissue:255]
   - Excel files contain statistics on identified artifacts
   - A folder named `Selected_tiles` containing qualified tiles
-- You can adjust the testing parameters on line 58 of `inti_artifact.py`
 - If your WSI image has a format other than .svs or .mrxs, please modify line 92 in `test_wsi.py`
 - It is recommended to use a tile size of 270 × 270 pixels
 - To generate tiles of different sizes (e.g., 512x512):
-    - Run the pipeline to generate the qualified tissue mask.
+    - Run the pipeline to generate the qualified tissue mask
     - Use the qualified tissue mask and the WSI to generate tiles of the desired size (a Python script will be provided soon to do this)
-- If your WSI image contains pen markings other than red, blue, green, or black, please update the pens.py file (located in the wsi_tile_cleanup/filters folder) to handle these additional pen markings.
-- To generate a high-resolution thumbnail image and segmentation mask, you can adjust the `thumbnail_size` parameter in `test_wsi.py`. However, note that this will increase the execution time
-
+- If your WSI image contains pen markings other than red, blue, green, or black, please update the pens.py file (located in the wsi_tile_cleanup/filters folder) to handle any additional pen-markings
+- To generate a high-resolution thumbnail image and segmentation masks, you can adjust the `thumbnail_size` parameter in `inti_artifact.py`. However, note that this will increase the execution time
+- Check out the useful parameters on line 58 of inti_artifact.py and adjust them if needed
 
 
 # Training:
