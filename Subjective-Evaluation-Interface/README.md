@@ -10,9 +10,9 @@ A simple MATLAB graphical user interface (GUI) to display the image tiles, allow
 - Matlab with version > R2015
 
 # Usage
-- Place the tiles in the ‘Tiles’ folder
-- List the tile names in Tiles.xlsx
-- Specify the tiles used for training in line 42 of subTestForm.m
-- Run subTestForm.m to see a demo
+- Place the tiles in the `Tiles` folder
+- List the tile names in `Tiles.xlsx`
+- Specify the tiles used for training in line 42 of `subTestForm.m`
+- Run `subTestForm.m` to see a demo
 
 
