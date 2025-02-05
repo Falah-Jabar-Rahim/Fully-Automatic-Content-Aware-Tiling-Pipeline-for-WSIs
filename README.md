@@ -63,8 +63,8 @@ TBD.
 
 # Training:
 
-- To retrain the artifact detection model, refer to the details provided in: https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA
-- To retrain the ink removal detection model, refer to the details provided in: https://github.com/Vishwesh4/Ink-WSI
+- To retrain the artifact detection model, refer to the details provided in:  [GitHub](https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA)
+- To retrain the ink removal detection model, refer to the details provided in: [GitHub](https://github.com/Vishwesh4/Ink-WSI)
 
 # Results 
 
@@ -74,7 +74,7 @@ TBD.
 
 # Notes:
 
-- If your WSIs do not contain pen-marking artifacts, you can also use this pipeline: https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA
+- If your WSIs do not contain pen-marking artifacts, you can also use this pipeline:  [GitHub](https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA)
 - WSI-SmartTiling is designed to clean and prepare WSIs for deep learning model development, prioritizing performance over efficiency
 
 
