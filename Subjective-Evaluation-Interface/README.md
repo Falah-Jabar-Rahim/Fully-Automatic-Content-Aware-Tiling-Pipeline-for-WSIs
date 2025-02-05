@@ -14,5 +14,6 @@ A simple MATLAB graphical user interface (GUI) to display the image tiles, allow
 - List the tile names in `Tiles.xlsx`
 - Specify the tiles used for training in line 42 of `subTestForm.m`
 - Run `subTestForm.m` to see a demo
+- Note: You may need to adjust the screen resolution to ensure the interface fits your monitor properly
 
 
