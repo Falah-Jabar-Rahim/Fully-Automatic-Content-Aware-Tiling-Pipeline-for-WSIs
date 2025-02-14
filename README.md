@@ -70,8 +70,7 @@ The pipeline starts by identifying the WSI tissue region and dividing it into sm
 
 # Results 
 
-![WSI-SmartTiling](Figs/Fig.3.png)
-![WSI-SmartTiling](./Fig4.png)
+![WSI-SmartTiling](Figs/Fig.3.png)![WSI-SmartTiling](Figs/Fig.4.png)
 
 TBD
 
