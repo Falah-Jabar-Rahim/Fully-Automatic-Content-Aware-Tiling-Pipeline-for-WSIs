@@ -68,7 +68,7 @@ The pipeline starts by identifying the WSI tissue region and dividing it into sm
 - To retrain the artifact detection model, refer to the details provided in:  [GitHub](https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA)
 - To retrain the ink removal detection model, refer to the details provided in: [GitHub](https://github.com/Vishwesh4/Ink-WSI)
 
-# Results 
+# Results & Benchmarking 
 
 ![WSI-SmartTiling](Figs/Fig.3.png)  <br />
 ![WSI-SmartTiling](Figs/Fig.4.png)  <br />
