@@ -1,0 +1,71 @@
+Traceback (most recent call last):
+  File "/home/unn/Desktop/WorkingFolder/Artifact_detection/Ink_Removal/Ink-WSI/ink_removal/test_ink.py", line 22, in <module>
+    from tqdm import tqdm
+ModuleNotFoundError: No module named 'tqdm'
+Traceback (most recent call last):
+  File "/home/unn/Desktop/WorkingFolder/Artifact_detection/Ink_Removal/Ink-WSI/ink_removal/test_ink.py", line 22, in <module>
+    from tqdm import tqdm
+ModuleNotFoundError: No module named 'tqdm'
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: pre-trained/                  	[default: ./pre-trained]
+          clean_slide_pth: images/                       	[default: None]
+                crop_size: 256                           
+                 dataroot: ./images/                     
+             dataset_mode: pairink                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                  do_norm: True                          	[default: False]
+                    epoch: latest                        
+                     eval: True                          	[default: False]
+                get_probs: False                         
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+            ink_slide_pth: images/                       	[default: None]
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                load_iter: 0                             	[default: 0]
+                load_size: 256                           
+         max_dataset_size: inf                           
+                     mode: test                          
+                    model: pix2pix                       
+               n_layers_D: 3                             
+                     name: /output                       
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: False                         
+                     norm: batch                         
+                 num_test: 30000                         	[default: 9]
+              num_threads: 4                             
+                output_nc: 3                             
+                 pair_csv: test.csv                      	[default: None]
+                    phase: test                          
+               preprocess: none                          	[default: resize_and_crop]
+              results_dir: output                        	[default: ./output]
+           serial_batches: False                         
+                 stride_h: 1.0                           	[default: 5]
+                 stride_w: 1.0                           	[default: 5]
+                   suffix:                               
+                use_wandb: False                         
+                  verbose: False                         
+                  version:                               
+----------------- End -------------------
+Traceback (most recent call last):
+  File "/home/unn/Desktop/WorkingFolder/Artifact_detection/Ink_Removal/Ink-WSI/ink_removal/test_ink.py", line 55, in <module>
+    opt = TestOptions().parse()  # get test options
+  File "/home/unn/Desktop/WorkingFolder/Artifact_detection/Ink_Removal/Ink-WSI/ink_removal/options/base_options.py", line 129, in parse
+    self.print_options(opt)
+  File "/home/unn/Desktop/WorkingFolder/Artifact_detection/Ink_Removal/Ink-WSI/ink_removal/options/base_options.py", line 113, in print_options
+    util.mkdirs(expr_dir)
+  File "/home/unn/Desktop/WorkingFolder/Artifact_detection/Ink_Removal/Ink-WSI/ink_removal/util/util.py", line 100, in mkdirs
+    mkdir(paths)
+  File "/home/unn/Desktop/WorkingFolder/Artifact_detection/Ink_Removal/Ink-WSI/ink_removal/util/util.py", line 110, in mkdir
+    os.makedirs(path)
+  File "/home/unn/anaconda3/envs/InkWSI/lib/python3.9/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/output'

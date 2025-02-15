@@ -1,0 +1,51 @@
+ENGINE: #For this section ensure none of the keys are missing
+  epochs: 50
+  save_loc:  #Empty save loc indicates no save location
+  resume_loc: #Empty resume loc indicates no need to resume
+  transfer_loc:
+  save_freq: 10
+  gpu_devices:
+  use_dataparallel: False
+  location_mod:
+  random_seed: 2022
+  
+METRIC:
+  subclass_name: mnist
+
+MODEL:
+  subclass_name: mnist
+  
+
+DATASET:
+  subclass_name: mnist
+  path:
+  train_batch_size: 64
+  test_batch_size: 64
+
+LOGGER:
+  subclass_name: mnist
+  use_wandb: True
+  watch_gradients: False
+  project_name: trainer_code
+  run_name: test1_mnist
+  notes: testing trainer code with mnist
+
+LOSS:
+  module_name: torch.nn 
+  subclass_name: CrossEntropyLoss
+  reduction: sum
+
+OPTIMIZER:
+  module_name: torch.optim
+  subclass_name: Adam
+  lr: 0.005
+  weight_decay: 0.0001
+
+SCHEDULER:
+  epoch_wise: true
+  module_name: torch.optim.lr_scheduler
+  subclass_name: StepLR
+  step_size: 1
+  gamma: 0.7
+
+

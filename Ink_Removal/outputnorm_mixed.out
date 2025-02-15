@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/home/falah/anaconda3/envs/DHNet/lib/python3.9/site-packages/pyvips/__init__.py", line 19, in <module>
+    import _libvips
+ImportError: /lib/x86_64-linux-gnu/libgobject-2.0.so.0: undefined symbol: ffi_type_uint32, version LIBFFI_BASE_7.0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/falah/Desktop/WorkingFolder/Artifact_detection/CA-tiling/Ink_Removal/Ink-WSI/ink_removal/test_ink.py", line 22, in <module>
+    import pyvips
+  File "/home/falah/anaconda3/envs/DHNet/lib/python3.9/site-packages/pyvips/__init__.py", line 70, in <module>
+    gobject_lib = ffi.dlopen(_gobject_libname)
+  File "/home/falah/anaconda3/envs/DHNet/lib/python3.9/site-packages/cffi/api.py", line 150, in dlopen
+    lib, function_cache = _make_ffi_library(self, name, flags)
+  File "/home/falah/anaconda3/envs/DHNet/lib/python3.9/site-packages/cffi/api.py", line 832, in _make_ffi_library
+    backendlib = _load_backend_lib(backend, libname, flags)
+  File "/home/falah/anaconda3/envs/DHNet/lib/python3.9/site-packages/cffi/api.py", line 827, in _load_backend_lib
+    raise OSError(msg)
+OSError: cannot load library 'libgobject-2.0.so.0': /lib/x86_64-linux-gnu/libgobject-2.0.so.0: undefined symbol: ffi_type_uint32, version LIBFFI_BASE_7.0.  Additionally, ctypes.util.find_library() did not manage to locate a library called 'libgobject-2.0.so.0'

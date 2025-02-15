@@ -1,0 +1,49 @@
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./pre-trained                 
+          clean_slide_pth: images                        
+                crop_size: 256                           
+                 dataroot:                               
+             dataset_mode: pairink                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                  do_norm: False                         
+                    epoch: latest                        
+                     eval: False                         
+                get_probs: False                         
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+            ink_slide_pth: images                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                load_iter: 0                             	[default: 0]
+                load_size: 256                           
+         max_dataset_size: inf                           
+                     mode: test                          
+                    model: pix2pix                       
+               n_layers_D: 3                             
+                     name: output                        
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: False                         
+                     norm: batch                         
+                 num_test: 9                             
+              num_threads: 4                             
+                output_nc: 3                             
+                 pair_csv: test.xlsx                     
+                    phase: etc                           
+               preprocess: resize_and_crop               
+              results_dir: ./output                      
+           serial_batches: False                         
+                 stride_h: 5                             
+                 stride_w: 5                             
+                   suffix:                               
+                use_wandb: False                         
+                  verbose: False                         
+                  version:                               
+----------------- End -------------------
