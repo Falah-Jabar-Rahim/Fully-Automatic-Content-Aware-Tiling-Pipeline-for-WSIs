@@ -1,95 +1,94 @@
-# Fully Automatic Content-Aware Tiling Pipeline for Whole Slide Images 
-![WSI-QA](./WSI-QA.bmp)
-# Abstract: 
-TBD.
-# Setting Up the Pipeline:
-1. System requirements:
-- Ubuntu 20.04 or 22.04
-- CUDA version: 12.2
-- Python version: 3.9 (using conda environments)
-- Anaconda version 23.7.4
+# DHUnet
+The codes for the paper "[DHUnet: Dual-branch Hierarchical Global-local Fusion Network for Whole Slide Image Segmentation](https://doi.org/10.1016/j.bspc.2023.104976)"
 
-2. Steps to Set Up the Pipeline:
-- Download the pipeline to your Desktop
-- Navigate to the downloaded pipeline folder
-- Right-click within the pipeline folder and select `Open Terminal`
-- Create a conda environment:
-```bash
-  conda create -n WSISmartTiling python=3.9
+## Abstract
+![DHUnet](./DHUnet.png)
+Hematoxylin and eosin stained whole slide images (WSIs) are the gold standard for pathologists and medical professionals for tumor diagnosis, surgery planning, and postoperative examinations. In recent years, due to the rapidly emerging field of deep learning, there have been many convolutional neural networks (CNNs) and Transformer based models applied to computational pathology for accurate segmentation. However, the generalization ability and robustness of models often affect the diagnosis and prognosis of cancer, and we attempt to effectively combine the advantage of CNN which excels in sparse WSI segmentation while Transformer excels in dense cases. In this paper, We propose a novel feature fusion strategy, DHUnet, which utilizes Swin Transformer and ConvNeXt modules with a dual-branch hierarchical U-shaped architecture to fuse global and local features for WSI segmentation. Firstly, a WSI is divided into small patches, which are put into the global and local encoders to generate hierarchical features in parallel. Then, with the help of global-local fusion modules and skip connections, the decoder can fully obtain the global coarse and local fine-grained information during the upsampling process. The proposed Cross-scale Expand Layer can make the patches with the same center but different scales recover the input resolution gradually at each stage. Finally, all the projected pixel-level patch masks are merged to restore the final WSI tumor segmentation. Extensive experiments demonstrate that DHUnet has excellent performance and generalization ability for WSI segmentation, achieving the best segmentation results on three datasets with different types of cancer, densities, and target sizes.
+
+## Requirements
+```shell
+pip install -r requirements.txt
 ```
-- Activate the environment:
-```bash
-  conda activate WSISmartTiling
+## Pre-trained Checkpoints
+The official pre-trained checkpoints are available at [Google Drive](https://drive.google.com/file/d/1spDwAM8eqfPx97wPBJbd1frkFPdKDd7g/view?usp=sharing).
+## Dataset
+The processed datasets and trained models are publicly available at [Google Drive](https://drive.google.com/drive/folders/1cEHr1YPE3fuJ0AKlJtWHOZ_vLKMcdQPa?usp=sharing).
+### Liver
+* The Third Xiangya Hospital of Central South University provides the data support.
+### WSSS4LUAD
+* The raw data is obtained from [WSSS4LUAD lung cancer challenge](https://wsss4luad.grand-challenge.org/WSSS4LUAD/).
+### BCSS
+* The raw data is obtained from [BCSS breast cancer challenge](https://bcsegmentation.grand-challenge.org/BCSS/).
+
+### Dataset Organization
+You should orginize your own dataset like below:
+```python
+data
+│───[Dataset Name 1]
+│   └───WSI
+│       │   wsi_1.svs / wsi_1.png
+│       │   wsi_1.xml / gt_wsi_1.png
+│       │   wsi_2.svs / wsi_2.png
+│       │   wsi_2.xml / gt_wsi_2.png
+│       │           ...
+│       │   wsi_n.svs / wsi_n.png
+│       │   wsi_n.xml / gt_wsi_n.png
+│───[Dataset Name 2]
+│   └───WSI
+│       │   wsi_1.svs / wsi_1.png
+│       │   wsi_1.xml / gt_wsi_1.png
+│       │   wsi_2.svs / wsi_2.png
+│       │   wsi_2.xml / gt_wsi_2.png
+│       │           ...
+│       │   wsi_n.svs / wsi_n.png
+│       │   wsi_n.xml / gt_wsi_n.png
+└───read_xml.py # convert *.xml file to *.png
 ```
-- Install required packages:
-```bash
-  pip install -r requirements.txt
+
+### Dataset Preprocessing and Spliting
+```python
+python wsi2patch.py --dataset Liver --data_dir data/Liver/WSI --output data/Liver --lists_dir lists/lists_Liver/ --overlap 224 --patch_size 448
+```
+## Train
+```python
+python train.py --dataset Liver --network DHUnet --cfg configs/DHUnet_224.yaml --root_path data --max_epochs 50 --output_dir model-Liver/DHUnet --img_size 224 --base_lr 0.005 --batch_size 24
 ```
 
-
-# Datasets:
-
-- Contact the corresponding author to access the datasets described in the paper
-- The datasets (only tiles and segmentation masks) are available for research purposes only
-
-# Pretrained Weights:
-
-TBD.
-
-# Inference:
-
-<p align="justify"> The pipeline starts by identifying the WSI tissue region and dividing it into smaller image tiles (e.g., 270x270). Pen-marking detection is then applied to categorize the tiles into two classes: those with high pen-marking (which are discarded) and those with medium and low pen-marking. Tiles with medium and low pen-marking undergo a pen-marking removal process, resulting in clean image tiles. Next, the clean image tiles are fed into the proposed artifact detection model to identify artifacts, followed by an optimization technique to select the best tiles—those with minimal artifacts and background and maximum qualified tissue. Finally, the WSI is reconstructed by combining the selected tiles to generate the final output. Additionally, the model generates a segmentation for the entire WSI and also provides statistics on the tile segmentations. </p>
-
-- Place your Whole Slide Image (WSI) into the `test_wsi` folder
-- The pre-trained weights are provided in `pretrained_ckpt` folder
-- In the terminal execute:
-```bash
-  python test_wsi.py
+## Test
+```python
+python test.py --dataset Liver --network DHUnet --cfg configs/DHUnet_224.yaml --is_saveni --volume_path data --output_dir model-Liver/DHUnet --max_epochs 50 --base_lr 0.005 --img_size 224 --batch_size 24
 ```
-- After running the inference, you will obtain the following outputs in `test_wsi` folder:
-  - A thumbnail image of WSI
-  - A thumbnail image of WSI with regions of interest (ROI) identified
-  - A segmentation mask highlighting segmented regions of the WSI [Qualifed tissue: green, fold: red, blur: orange, and background: black]
-  - A segmentation mask highlighting only qualified tissue regions of the WSI [background:0, qualified tissue:255]
-  - Excel files contain statistics on identified artifacts
-  - A folder named `Selected_tiles` containing qualified tiles
-- If your WSI image has a format other than .svs or .mrxs, please modify line 92 in `test_wsi.py`
-- It is recommended to use a tile size of 270 × 270 pixels
-- To generate tiles of different sizes (e.g., 512x512):
-    - Run the pipeline to generate the qualified tissue mask
-    - Use the qualified tissue mask and the WSI to generate tiles of the desired size (a Python script will be provided soon to do this)
-- If your WSI image contains pen-markings other than red, blue, green, or black, please update the `pens.py` file (located in the wsi_tile_cleanup/filters folder) to handle any additional pen-markings
-- To generate a high-resolution thumbnail image and segmentation masks, you can adjust the `thumbnail_size` parameter in `inti_artifact.py`. However, note that this will increase the execution time
-- Check out the useful parameters on line 58 of `inti_artifact.py` and adjust them if needed
+## Optional implementation networks 
+| CNNs-based network | Transformer-based network |
+|:---:|:---:|
+[UNet](https://github.com/ZJUGiveLab/UNet-Version) | [Medical Transformer](https://github.com/jeya-maria-jose/Medical-Transformer)  
+[ResNet](https://github.com/pytorch/vision/blob/main/torchvision/models/resnet.py) | [TransUnet](https://github.com/Beckschen/TransUNet)  
+[FCN](https://github.com/pytorch/vision/tree/main/torchvision/models/segmentation)  | [SwinUnet](https://github.com/HuCaoFighting/Swin-Unet)  
+[DeepLabV3](https://github.com/Tramac/awesome-semantic-segmentation-pytorch)  | [TransFuse](https://github.com/Rayicer/TransFuse)  
+[ConvNeXt](https://github.com/facebookresearch/ConvNeXt)  | - |
 
+## References
+   * [ConvNeXt](https://github.com/facebookresearch/ConvNeXt)
+   * [Unet](https://github.com/ZJUGiveLab/UNet-Version)
+   * [DeepLabV3](https://github.com/Tramac/awesome-semantic-segmentation-pytorch)
+   * [FCN](https://github.com/pytorch/vision/tree/main/torchvision/models/segmentation)
+   * [Resnet](https://github.com/pytorch/vision/blob/main/torchvision/models/resnet.py)
+   * [SwinTransformer](https://github.com/microsoft/Swin-Transformer)
+   * [TransUnet](https://github.com/Beckschen/TransUNet)
+   * [SwinUnet](https://github.com/HuCaoFighting/Swin-Unet)
+   * [TransFuse](https://github.com/Rayicer/TransFuse)
+   * [Medical Transformer](https://github.com/jeya-maria-jose/Medical-Transformer)
+## Citation
+```bibtex
+@article{wang2023dhunet,
+  title={DHUnet: Dual-branch hierarchical global--local fusion network for whole slide image segmentation},
+  author={Wang, Lian and Pan, Liangrui and Wang, Hetian and Liu, Mingting and Feng, Zhichao and Rong, Pengfei and Chen, Zuo and Peng, Shaoliang},
+  journal={Biomedical Signal Processing and Control},
+  volume={85},
+  pages={104976},
+  year={2023},
+  publisher={Elsevier}
+}
+```
 
-# Training:
-
-- To retrain the artifact detection model, refer to the details provided in:  [GitHub](https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA)
-- To retrain the ink removal detection model, refer to the details provided in: [GitHub](https://github.com/Vishwesh4/Ink-WSI)
-
-# Results & Benchmarking 
-
-![WSI-SmartTiling](Figs/Fig.3.png)  <br />
-![WSI-SmartTiling](Figs/Fig.4.png)  <br />
-![WSI-SmartTiling](Figs/Fig.5.png) <br />
-![WSI-SmartTiling](Figs/Fig.7.png)<br />
-
-<p align="justify"> Benchmark models, GrandQC (https://github.com/cpath-ukk/grandqc) pixel-wise segmentation model developed for artifact detection, and four tile-wise classification models with different network architectures (https://github.com/NeelKanwal/Equipping-Computational-Pathology-Systems-with-Artifact-Processing-Pipeline), namely MoE-CNN, MoE-ViT, multiclass-CNN, and multiclass-ViT. The proposed pixel-wise segmentation model is compared to GrandQC based on pixel segmentation accuracy and to MoE-CNN, MoE-ViT, Multiclass-CNN, and Multiclass-ViT based on tile classification. The classification considers three classes—artifact-free, fold, and blur. The model takes input tiles and generates segmentation masks, which are then used for tile classification. The classification process follows these criteria: (1) If the background occupies more than 50% of the tile, it is classified as a background tile. (2) If the background occupies less than 50%, but blurring and/or folding artifacts exceed 10% of the tile, it is classified as either fold or blur. (3) If the background is less than 50% and blurring and/or folding artifacts are below 10%, the tile is classified as artifact-free. The internal and external datasets are described in the manuscript. For segmentation, the ground truth segmentation masks are compared to the segmentation masks generated by the model. For classification, the predicted classes are compared to the ground truth labels. Quantitative metrics, including total accuracy (Acc), precision, recall, and F1 score, were used to evaluate classification performance, and the Dice metric was used to evaluate segmentation performance. The source code and model weights for benchmark models were obtained from the original GitHub repositories.  </p>
-
-# Notes:
-
-- If your WSIs do not contain pen-marking artifacts, you can also use this pipeline:  [GitHub](https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA)
-- WSI-SmartTiling is designed to clean and prepare WSIs for deep learning model development, prioritizing performance over efficiency
-- The execution time for the proposed artifact detection, QrandQc, and MoE-CNN on an NVIDIA A100 GPU (80GB memory) running CUDA 12.2, Ubuntu 20.04, a 40-core CPU, and 512GB of RAM are 6.39, 2.96, and 1.92 minutes, respectively, for a WSI at 20× magnification with dimensions (31,871 × 25,199) pixels
-- xxxxx
-- The WSI-SmarTiling pipeline is currently implemented with serial execution. Its computational cost can be significantly reduced by leveraging multi-GPU parallelism, optimizing with NVIDIA solutions like RAPIDS and MONAI, and implementing in C++ for improved efficiency
-
-
-# Acknowledgment:
-
-Some parts of this pipeline were adapted from work on [GitHub](https://github.com/pengsl-lab/DHUnet) and  [GitHub](https://github.com/Vishwesh4/Ink-WSI). If you use this pipeline, please make sure to cite their work properly
-
-
-# Contact: 
-If you have any questions or comments, please feel free to contact: falah.rahim@unn.no
+## If you have any questions or comments, please feel free to contact: lianwang@hnu.edu.cn
