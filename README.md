@@ -75,7 +75,8 @@ TBD.
 # Acknowledgment:
 
 Some parts of this pipeline were adapted from work on GitHub and GitHub. If you use this pipeline, please make sure to cite their work properly
-Contact:
+
+# Contact:
 
 If you have any questions or comments, please feel free to contact: falah.rahim@unn.no
 
