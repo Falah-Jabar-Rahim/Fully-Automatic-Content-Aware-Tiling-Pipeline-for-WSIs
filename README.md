@@ -34,7 +34,7 @@ TBD.
 
 <p align="justify"> The pipeline starts by identifying the WSI tissue region and dividing it into smaller image tiles (e.g., 270x270). Pen-marking detection is then applied to categorize the tiles into two classes: those with high pen-marking (which are discarded) and those with medium and low pen-marking. Tiles with medium and low pen-marking undergo a pen-marking removal process, resulting in clean image tiles. Next, the clean image tiles are fed into the proposed artifact detection model to identify artifacts, followed by an optimization technique to select the best tiles—those with minimal artifacts and background and maximum qualified tissue. Finally, the WSI is reconstructed by combining the selected tiles to generate the final output. Additionally, the model generates a segmentation for the entire WSI and also provides statistics on the tile segmentations. </p>
 
-- Place your Whole Slide Image (WSI) into the test_wsi folder
+- Place your Whole Slide Image (WSI) into the `test_wsi` folder
 - The pre-trained weights for artifact detection are available in the `pretrained_ckpt` folder, while the weights for pen-marker removal are located in the `Ink_Removal/pre-trained` folder
 - In the terminal execute:
   `python test_wsi.py`
@@ -80,7 +80,7 @@ TBD.
 
 # Acknowledgment:
 
-Some parts of this pipeline were adapted from work on GitHub and GitHub. If you use this pipeline, please make sure to cite their work properly
+Some parts of this pipeline were adapted from work on [GitHub](https://github.com/pengsl-lab/DHUnet) and [GitHub](https://github.com/Vishwesh4/Ink-WSI). If you use this pipeline, please make sure to cite their work properly
 
 # Contact:
 
