@@ -54,7 +54,7 @@ The pipeline starts by identifying the WSI tissue region and dividing it into sm
 - Check out the useful parameters on line 58 of inti_artifact.py and adjust them if needed
 Training:
 
-- To retrain the artifact detection model, refer to the details provided in: [GitHub]!(https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA)
-- To retrain the ink removal detection model, refer to the details provided in: [GitHub]!(https://github.com/Vishwesh4/Ink-WSI)
+- To retrain the artifact detection model, refer to the details provided in: [GitHub] !(https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA)
+- To retrain the ink removal detection model, refer to the details provided in: [GitHub] !(https://github.com/Vishwesh4/Ink-WSI)
 
 
