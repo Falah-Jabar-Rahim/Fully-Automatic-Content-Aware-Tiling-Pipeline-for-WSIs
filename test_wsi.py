@@ -148,7 +148,7 @@ if __name__ == "__main__":
         print("Tile selection is done!")
         end_time = time.time()
         execution_time = (end_time - start_time) / 60  # Convert to minutes
-        print(f"Execution time for pen-marker detection & removal: {execution_time:.6f} minutes")
+        print(f"Execution time for tile selection: {execution_time:.6f} minutes")
 
         ##### Step 6: saving results
         #save wsi segmentation mask
