@@ -76,6 +76,7 @@ TBD.
 - The execution time for the proposed artifact detection, QrandQc, and MoE-CNN on an NVIDIA A100 GPU (80GB memory) running CUDA 12.2, Ubuntu 20.04, a 40-core CPU, and 512GB of RAM are 6.39, 2.96, and 1.92 minutes, respectively, for a WSI at 20× magnification with dimensions (31,871 × 25,199) pixels
 - xxxxx
 - The WSI-SmarTiling pipeline is currently implemented with serial execution. Its computational cost can be significantly reduced by leveraging multi-GPU parallelism, optimizing with NVIDIA solutions like RAPIDS and MONAI, and/or implementing in C++
+- The GUI interface described in the paper is located in the `Subjective-Evaluation-Interface` folder.
 
 # Acknowledgment:
 
