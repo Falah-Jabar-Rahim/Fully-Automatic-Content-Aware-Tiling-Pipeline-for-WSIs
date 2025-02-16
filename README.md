@@ -14,10 +14,10 @@ TBD
 - Create a conda environment:
 `conda create -n WSISmartTiling python=3.9`
 
--Activate the environment:
+- Activate the environment:
   `conda activate WSISmartTiling`
 
--Install required packages:
+- Install required packages:
   `pip install -r requirements.txt`
 
 
