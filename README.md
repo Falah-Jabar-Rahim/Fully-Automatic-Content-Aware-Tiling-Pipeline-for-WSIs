@@ -26,6 +26,8 @@ TBD
 - Contact the corresponding author to access the datasets described in the paper
 - The datasets (only tiles and segmentation masks) are available for research purposes only
 
+  TBD ...
+
 # Pretrained Weights:
 
 TBD.
