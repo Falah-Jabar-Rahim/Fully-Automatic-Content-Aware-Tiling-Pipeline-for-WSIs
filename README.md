@@ -2,6 +2,7 @@
 TBD
 
 # Setting Up the Pipeline:
+
 1. System requirements:
 - Ubuntu 20.04 or 22.04
 - CUDA version: 12.2
@@ -68,8 +69,9 @@ TBD.
 - WSI-SmartTiling is designed to clean and prepare WSIs for deep learning model development, prioritizing performance over efficiency
 - The execution time for the proposed artifact detection, QrandQc, and MoE-CNN on an NVIDIA A100 GPU (80GB memory) running CUDA 12.2, Ubuntu 20.04, a 40-core CPU, and 512GB of RAM are 6.39, 2.96, and 1.92 minutes, respectively, for a WSI at 20× magnification with dimensions (31,871 × 25,199) pixels
 - xxxxx
-- The WSI-SmarTiling pipeline is currently implemented with serial execution. Its computational cost can be significantly reduced by leveraging multi-GPU parallelism, optimizing with NVIDIA solutions like RAPIDS and MONAI, and implementing in C++ for improved efficiency
-Acknowledgment:
+- The WSI-SmarTiling pipeline is currently implemented with serial execution. Its computational cost can be significantly reduced by leveraging multi-GPU parallelism, optimizing with NVIDIA solutions like RAPIDS and MONAI, and/or implementing in C++
+
+# Acknowledgment:
 
 Some parts of this pipeline were adapted from work on GitHub and GitHub. If you use this pipeline, please make sure to cite their work properly
 Contact:
