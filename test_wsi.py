@@ -90,7 +90,7 @@ if __name__ == "__main__":
     tile_seg_sv = args_artifact.save_seg
     #####get list of WSI to process#####
     wsi_files = [f for f in os.listdir(data) if f.endswith(".svs") or f.endswith(".mrxs")]
-    start_time = time.time()  # Start time
+    intial_time = time.time()  # Start time
 
     #####iterate over WSIs#####
     for wsi_id, wsi_file in enumerate(wsi_files):
@@ -191,6 +191,6 @@ if __name__ == "__main__":
         print("Results are saved")
 
     end_time = time.time()  # End time
-    execution_time = end_time - start_time  # Calculate the execution time
+    execution_time = end_time - intial_time  # Calculate the execution time
     execution_time_minutes = execution_time / 60  # Convert seconds to minutes
     print(f"Total execution time is {execution_time_minutes} minutes")
