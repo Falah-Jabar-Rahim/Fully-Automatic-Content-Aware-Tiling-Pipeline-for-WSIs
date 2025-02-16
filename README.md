@@ -74,7 +74,7 @@ TBD.
 
 - If your WSIs do not contain pen-marking artifacts, you can also use this pipeline: [GitHub](https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA)
 - WSI-SmartTiling is designed to clean and prepare WSIs for deep learning model development, prioritizing performance over efficiency
-- The execution time for the proposed artifact detection, QrandQc, and MoE-CNN models on  NVIDIA GeForce RTX 4090 (24GB) running CUDA 12.2, Ubuntu 22.04,  32-core CPU, and 192GB of RAM are 6.39, 2.96, and 1.92 minutes, respectively, for a WSI at 20X magnification with dimensions (31,871 × 25,199) pixels. Meanwhile, the execution time for WSI-SmartTiling pipeline is approximately 42.5 minutes, with 21 minutes for pen-marker detection & removal and 21.5 minutes for the remaining processes
+- The execution time for the proposed artifact detection, QrandQc, and MoE-CNN models on  NVIDIA GeForce RTX 4090 (24GB) running CUDA 12.2, Ubuntu 22.04,  32-core CPU, and 192GB of RAM are 6.39, 2.96, and 1.92 minutes, respectively, for a WSI at 20X magnification with dimensions (31,871 × 25,199) pixels. Meanwhile, the execution time for WSI-SmartTiling (complete pipeline) is approximately 42.5 minutes, with 21 minutes for pen-marker detection & removal and 21.5 minutes for the remaining processes
 - The WSI-SmarTiling pipeline is currently implemented with serial execution. Its computational cost can be significantly reduced by leveraging multi-GPU parallelism, optimizing with NVIDIA solutions like RAPIDS and MONAI, and/or implementing in C++
 - The source code for the GUI interface described in the paper is located in the `Subjective-Evaluation-Interface` folder.
 
