@@ -53,6 +53,7 @@ TBD.
     - Use the qualified tissue mask and the WSI to generate tiles of the desired size (a Python script will be provided soon to do this)
 - If your WSI image contains pen-markings other than red, blue, green, or black, please update the `pens.py` file (located in the `wsi_tile_cleanup/filters folder`) to handle any additional pen-markings
 - To generate a high-resolution thumbnail image and segmentation masks, you can adjust the `thumbnail_size` parameter in `inti_artifact.py`. However, note that this will increase the execution time
+- To generate a tile segmentation mask, uncomment line 189 in `test_wsi.py`
 - Check out the useful parameters on line 58 of `inti_artifact.py` and adjust them if needed
 
 # Training:
