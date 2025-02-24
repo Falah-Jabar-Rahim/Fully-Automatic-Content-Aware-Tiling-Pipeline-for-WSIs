@@ -33,7 +33,7 @@ In conclusion, this high-resolution preprocessing pipeline can significantly imp
 # Pretrained Weights:
 
 - Download the pretrained weights from this link: https://drive.google.com/drive/folders/1_p6jBo9DkOvN_YAvBikP73VcYjp76cXr?usp=share_link
-- Place the artifact detection weights into the pretrained_ckpt folder
+- Place the artifact detection weights into the `pretrained_ckpt` folder and pen-marking detection and removal weightsinto the folder `/Ink_Removal/pre-trained`
 
 
 # Inference:
