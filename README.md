@@ -89,6 +89,17 @@ Check out the paper: [Paper](https://www.sciencedirect.com/science/article/pii/S
 
 Some parts of this pipeline were adapted from work on [GitHub](https://github.com/pengsl-lab/DHUnet) and [GitHub](https://github.com/Vishwesh4/Ink-WSI). If you use this pipeline, please make sure to cite their work properly
 
+# Citation:
+
+Falah Jabar, Lill-Tove Rasmussen Busund, Biagio Ricciuti, Masoud Tafavvoghi, Thomas K. Kilvaer, David J. Pinato, Mette Pøhl, Sigve Andersen, Tom Donnem, David J. Kwiatkowski, Mehrdad Rakaee,
+Fully Automatic Content-Aware Tiling Pipeline for Pathology Whole Slide Images,
+Intelligence-Based Medicine,
+2025,
+100318,
+ISSN 2666-5212,
+https://doi.org/10.1016/j.ibmed.2025.100318.
+(https://www.sciencedirect.com/science/article/pii/S266652122500122X)
+
 # Contact:
 
 If you have any questions or comments, please feel free to contact: falah.rahim@unn.no
