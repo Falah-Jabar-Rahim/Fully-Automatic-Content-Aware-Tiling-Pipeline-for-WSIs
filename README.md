@@ -51,7 +51,7 @@ Check out the paper: [Paper](https://www.sciencedirect.com/science/article/pii/S
     - A thumbnail image of WSI
     - A thumbnail image of WSI with regions of interest (ROI) identified
     - A segmentation mask highlighting segmented regions of the WSI [Qualifed tissue: green, fold: red, blur: orange, and background: black]
-    - A segmentation mask highlighting only qualified tissue regions of the WSI [background:0, qualified tissue:255]
+    - A segmentation mask highlighting only qualified tissue regions of the WSI [background:0, qualified tissue:1]
     - Excel files contain statistics on identified artifacts
     - A folder named Selected_tiles containing qualified tiles
 
@@ -60,31 +60,18 @@ Check out the paper: [Paper](https://www.sciencedirect.com/science/article/pii/S
 
 - If your WSIs do not contain pen-marking artifacts, use the faster pipeline available here: [GitHub](https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA)
 - Use the parameter `wsilevel` in `configs/inti_artifact.py` to specify the WSI level used for tiling.
-  - wsilevel = 0 tiles the WSI at native resolution, providing maximum segmentation performance, but with longer inference time
+	- wsilevel = 0 tiles the WSI at native resolution, providing maximum segmentation performance, but with longer inference time
 	- wsilevel = 1 or 2 tiles the WSI at lower magnification, resulting in faster inference, but with reduced segmentation accuracy
 - If your WSI image has a format other than .svs or .mrxs, please modify line 92 in `test_wsi.py`
 - It is recommended to use a tile size of 270 × 270 pixels
-- If your WSI image contains pen-markings other than red, blue, green, or black, please update the `pens.py` file (located in the `wsi_tile_cleanup/filters folder`) to handle any additional pen-markings
+- If your WSI image contains pen-markings other than red, blue, green, or black, please update the `pens.py` file (located in the `Ink_Removal/wsi_tile_cleanup/filters folder`) to handle any additional pen-markings
 - To generate a high-resolution thumbnail image and segmentation masks, you can adjust the `thumbnail_size` parameter in `configs/inti_artifact.py`. However, note that this will increase the execution time and memory usage
 - Check out the useful parameters on line 60 of `configs/inti_artifact.py` and adjust them if needed
 - To generate tiles of different sizes (e.g., 512x512):
-    - Run the pipeline to generate the qualified tissue mask
-    - Run the following commads:
-  `python tile_wsi.py \
-    --wsi_path input_WSI/normal_3.svs \
-    --mask_path input_WSI/normal_3_results/normal_3_qualified_mask.png \
-    --out_dir input_WSI/out \
-    --tile_size 512 512 \
-    --overlap 0.0 \
-    --bg_thr 0.10 \
-    --level 0 \
-    --save_overlay`
-
-      `python test_wsi.py`
-
-- The execution time for the proposed artifact detection, QrandQc, and MoE-CNN models on  NVIDIA GeForce RTX 4090 (24GB) running CUDA 12.2, Ubuntu 22.04,  32-core CPU, and 192GB of RAM are 6.39, 2.96, and 1.92 minutes, respectively, for a WSI at 20X magnification with dimensions (31,871 × 25,199) pixels
-- The source code for the GUI interface described in the paper is located in the `Subjective-Evaluation-Interface` folder
-
+    - Run the pipeline to generate the qualified tissue mask (binary mask: tissure (1)/bg or artifatcs (0))
+    - Run `python tile_wsi.py --wsi_path input_WSI/normal_3.svs  --mask_path /tissue mask/path/ --out_dir /output dir/path/ --tile_size 512 512 --overlap 0.0 --bg_thr 0.10 -level 0 --save_overlay`
+- To disable pen-mark removal model, set the `clean_penmarker` parameter in `configs/inti_artifact.py` to 0. When disabled, any tile with pen-marking greater than `min_marker_thr` will be removed. You can adjust `min_marker_thr` values to achieve better results for your dataset
+- These parameters are important and have a significant impact on model performance. Adjust them according to your dataset: `back_thr` , `blur_fold_thr` , `max_marker_thr` , `min_marker_thr` , `clean_penmarker`
 
 # Training:
 
