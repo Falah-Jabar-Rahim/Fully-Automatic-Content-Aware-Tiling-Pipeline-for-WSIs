@@ -58,7 +58,7 @@ def inti_model_artifact():
 
 
     ### WSI parameters, tune these parameters if needed
-    parser.add_argument('--batch_size', type=int, default=128, help='batch_size per gpu')
+    parser.add_argument('--batch_size', type=int, default=64, help='batch_size per gpu')
     parser.add_argument('--img_size', type=int, default=270, help='required tile size')
     parser.add_argument('--wsilevel', default=0, type=int, help='level from open slide to read')
     parser.add_argument('--thumbnail_size', default=5000, type=int, help='required wsi thumbnail resolution')
