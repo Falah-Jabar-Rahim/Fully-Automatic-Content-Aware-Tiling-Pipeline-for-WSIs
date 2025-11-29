@@ -34,7 +34,7 @@ Check out the paper: [Paper](https://www.sciencedirect.com/science/article/pii/S
 
 # Pretrained Weights:
 
-- Download the pretrained weights from this link: [Weights](https://drive.google.com/drive/folders/1_p6jBo9DkOvN_YAvBikP73VcYjp76cXr?usp=share_link)
+- Download the pretrained weights from this link: [Model weights](https://huggingface.co/jwtyar/WSI-SmartTiling/tree/main)
 - Place the artifact detection weights in the `pretrained_ckpt` folder, and the pen-marking detection and removal weights in the `/Ink_Removal/pre-trained` folder
 
 
