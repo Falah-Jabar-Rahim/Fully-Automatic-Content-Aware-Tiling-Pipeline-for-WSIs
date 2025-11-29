@@ -60,8 +60,8 @@ Check out the paper: [Paper](https://www.sciencedirect.com/science/article/pii/S
 
 - If your WSIs do not contain pen-marking artifacts, use the faster pipeline available here: [GitHub](https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA)
 - Use the parameter `wsilevel` in `configs/inti_artifact.py` to specify the WSI level used for tiling
-	- wsilevel = 0 tiles the WSI at native resolution, providing maximum segmentation performance, but with longer inference time
-	- wsilevel = 1 or 2 tiles the WSI at lower magnification, resulting in faster inference, but with reduced segmentation accuracy
+	- wsilevel = 0 tiles the WSI at native resolution, providing maximum segmentation performance, but with longer inference time. Recommended when preparing high-quality datasets for training deep learning models
+	- wsilevel = 1 or 2 tiles the WSI at lower magnification, resulting in faster inference, but with reduced segmentation accuracy. This may be sufficient when preparing datasets for downstream tasks or testing scenarios where speed is prioritized over accuracy
 - If your WSI image has a format other than .svs or .mrxs, please modify line 92 in `test_wsi.py`
 - It is recommended to use a tile size of 270 × 270 pixels
 - If your WSI image contains pen-markings other than red, blue, green, or black, please update the `pens.py` file (located in the `Ink_Removal/wsi_tile_cleanup/filters folder`) to handle any additional pen-markings
