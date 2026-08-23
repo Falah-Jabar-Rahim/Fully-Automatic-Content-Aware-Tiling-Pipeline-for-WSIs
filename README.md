@@ -93,6 +93,7 @@ Some parts of this pipeline were adapted from work on [GitHub](https://github.co
 
 # Citation:
 
+```bibtex
 @article{
   author = {Falah Jabar et. al},
   title = {Fully Automatic Content-aware Tiling Pipeline for Pathology Whole Slide Images},
@@ -100,6 +101,8 @@ Some parts of this pipeline were adapted from work on [GitHub](https://github.co
   year = {2025},
   doi = {https://doi.org/10.1016/j.ibmed.2025.100318}
 }
+```
+
 # Contact:
 
 If you have any questions or comments, please feel free to contact: falah.rahim@unn.no
