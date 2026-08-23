@@ -31,8 +31,8 @@ Check out the paper: [Paper](https://www.sciencedirect.com/science/article/pii/S
 
 # Datasets:
 
-- Contact the corresponding author to access the datasets described in the paper
-- The datasets (only tiles and segmentation masks) are available for research purposes only
+- The dataset is avialbe here: [WSI-Artifact-Dataset](https://huggingface.co/datasets/jwtyar/WSI-Artifact-Dataset/upload/main)
+- The datasets (only tiles and segmentation masks) are available for research purposes only.
 
 # Pretrained Weights:
 
