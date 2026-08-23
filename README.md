@@ -100,8 +100,6 @@ Some parts of this pipeline were adapted from work on [GitHub](https://github.co
   year = {2025},
   doi = {https://doi.org/10.1016/j.ibmed.2025.100318}
 }
-
-
 # Contact:
 
 If you have any questions or comments, please feel free to contact: falah.rahim@unn.no
