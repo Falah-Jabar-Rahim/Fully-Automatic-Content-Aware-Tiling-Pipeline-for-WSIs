@@ -7,6 +7,8 @@ In conclusion, this high-resolution preprocessing pipeline can significantly imp
 
 Check out the paper: [Paper](https://www.sciencedirect.com/science/article/pii/S266652122500122X?via%3Dihub)
 
+**Note** If your whole-slide images (WSIs) do not contain pen-marking artifacts, use this pipeline [WSI-QA](https://github.com/Falah-Jabar-Rahim/A-Fully-Automatic-DL-Pipeline-for-WSI-QA
+)
 # Setting Up the Pipeline:
 
 1. System requirements:
