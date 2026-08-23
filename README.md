@@ -93,14 +93,14 @@ Some parts of this pipeline were adapted from work on [GitHub](https://github.co
 
 # Citation:
 
-Falah Jabar, Lill-Tove Rasmussen Busund, Biagio Ricciuti, Masoud Tafavvoghi, Thomas K. Kilvaer, David J. Pinato, Mette Pøhl, Sigve Andersen, Tom Donnem, David J. Kwiatkowski, Mehrdad Rakaee,
-Fully Automatic Content-Aware Tiling Pipeline for Pathology Whole Slide Images,
-Intelligence-Based Medicine,
-2025,
-100318,
-ISSN 2666-5212,
-https://doi.org/10.1016/j.ibmed.2025.100318.
-(https://www.sciencedirect.com/science/article/pii/S266652122500122X)
+@article{
+  author = {Falah Jabar et. al},
+  title = {Fully Automatic Content-aware Tiling Pipeline for Pathology Whole Slide Images},
+  journal = {Intelligence-Based Medicine},
+  year = {2025},
+  doi = {https://doi.org/10.1016/j.ibmed.2025.100318}
+}
+
 
 # Contact:
 
